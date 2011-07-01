@@ -193,7 +193,9 @@ function goToFriendPageAndStart() {
  */
 function renderExportFriendsLink() {
   // Paint the Export friends to the top of the page.
-  var exportFriendsLink = $('#pageNav a:contains("Home")').parent().clone();
+  // find Home Button independent from user interface language
+  var exportFriendsLink = $('#pageNav a[href="http://www.facebook.com/?ref=home"]').parent().clone();
+
   $('a', exportFriendsLink)
       .attr('id', 'export-friends-link')
       .attr('href', 'javascript:void(0);')
@@ -201,5 +203,5 @@ function renderExportFriendsLink() {
       .css('color', 'white')
       .click(goToFriendPageAndStart);
   $(exportFriendsLink).attr('id', '');
-  $('#pageNav a:contains("Home")').parent().after(exportFriendsLink);
+  $('#pageNav a[href="http://www.facebook.com/?ref=home"]').parent().after(exportFriendsLink);
 }
